@@ -1,0 +1,105 @@
+hotstar-disney-clone
+
+
+1. npx create-react-app disney-clone --template redux
+2. Styled Components - CSS within javascript
+3. npm install styled-components
+4. learnings
+	
+  	Why is this important?
+      How an element behaves when styled with CSS will change based on the display mode of an element (block vs. inline). Some CSS properties react differently for each display type. We'll learn more about this behavior when we start to lay out pages in CSS.
+
+      For now, remember this:
+
+      Inline elements cannot contain block level elements
+      For example, you cannot wrap an <em> around two paragraphs:
+
+      <em>						← Incorrect
+        <p>An emphasized paragraph.</p>
+        <p>Another emphasized paragraph.</p>
+      </em>						← Incorrect
+      The correct way to do this would be to put the inline element inside each block element:
+      <p><em>An emphasized paragraph.</em></p>
+      <p><em>Another emphasized paragraph.</em></p>
+      One Exception (New in HTML5)
+      HTML5 creates one welcome exception to this rule. You can now wrap links around block level elements. An example makes this clear.
+
+      It's common to mark up the name of the site with a logo and tag line, something like this:
+
+      <h1>Recipe Book</h1>
+      <p>Eat first, talk later.</p>
+      Typically, each of these would also link to the home page. Previously, you would mark up each block-level element with a link
+
+      <h1><a href="index.html">Recipe Book</a></h1>
+      <p><a href="index.html">Eat first, talk later.</a></p>
+      Now you can simply wrap both in a link. Cleaner and less redundant.
+
+      <a href="index.html">
+        <h1>Recipe Book</h1>
+        <p>Eat first, talk later.</p>
+      </a>
+
+5. span {
+
+	&:after - basically add a div after the span contents
+	
+	}
+
+    &::after is actually nothing in CSS, but it is a feature of SASS/SCSS and is probably written in a context like this:
+
+      li {
+        /* some style 1 */
+
+        &::after {
+          /* some style 2 */
+        }
+
+      }
+      Which compiles to:
+
+      li { /* some style 1 */ }
+      li::after { /* some style 2 */ }
+      Basically, the ampersand in SASS pulls in the parent selector when it compiles to CSS.
+
+      EDIT You can't use the ampersand in a .css file, as it has no meaning, you can only use it in sass/scss files that are compiled to CSS using a SASS pre-processor.
+
+      Blog post (not mine) about ampersand in SASS:
+
+      http://www.joeloliveira.com/2011/06/28/the-ampersand-a-killer-sass-feature/
+
+      EDIT 2 Further answers:
+
+      Everything else is vanilla CSS, ::after, ::before are pseudo elements, .relative and .radio are class selectors, :checked is a pseudo class for input types radio and checkbox, and + is an adjacent sibling selector
+
+      MDN should be (one) of your authorities for CSS documentation, so I chose to link to their pages rather than simply copy and paste the contents of their documents into this answer.
+
+      EDIT 3
+
+      I realized I didn't specifically state what & + .relative is.
+
+      I alluded to it initially when I said
+
+      the ampersand in SASS pulls in the parent selector when it compiles to CSS
+
+      In the OPs linked example there is this code:
+
+      .radio:checked
+        & + .relative
+          label 
+            ... some styles here
+      When you consider that & pulls in the parent selector you'll see compiled CSS as this:
+
+      .radio:checked + .relative label { ... some styles here }
+      In "plain english", if you will:
+
+      An element with a class of radio that is checked with an immediate adjacent sibling element that has a class of relative and a child of that element with a tag name of label.
+
+6. Use React Slick - image slider
+
+7. npm install firebase -g
+
+8. npm install firebase-tools -g
+
+9. firebase init
+
+10. firebase deploy
